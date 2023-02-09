@@ -7,5 +7,6 @@ int main(){
     cout<<"add somethig"<<endl;
     cout<<"branch test1"<<endl;
     cout<<"22:50 25%"<<endl;
+    cout<<"branch dev"<<endl;
     return 0;
 }
