@@ -7,11 +7,12 @@ int main(){
     cout<<"add somethig"<<endl;
     cout<<"branch conflict"<<endl;
     cout<<"22:50 25%"<<endl;
-<<<<<<< HEAD
     cout<<"branch dev"<<endl;
 =======
     cout<<"1"<<endl;
 >>>>>>> dev
     cout<<"windows modified"<<endl;
+
+    cout<<"rebase "<<endl;
     return 0;
 }
