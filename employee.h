@@ -12,5 +12,6 @@ int main(){
 =======
     cout<<"1"<<endl;
 >>>>>>> dev
+    cout<<"windows modified"<<endl;
     return 0;
 }
