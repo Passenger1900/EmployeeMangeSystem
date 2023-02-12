@@ -19,5 +19,7 @@ int main(){
     cout<<"fork change"<<endl;
 
     cout<<"sshkey never used"<<endl;
+    
+    cout<<"fuck"<<endl;
     return 0;
 }
