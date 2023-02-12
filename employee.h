@@ -9,5 +9,8 @@ int main(){
     cout<<"22:50 25%"<<endl;
     cout<<"1"<<endl;
     cout<<"windows modified"<<endl;
+    
+    
+    cout<<"fork change"<<endl;
     return 0;
 }
