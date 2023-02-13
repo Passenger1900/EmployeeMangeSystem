@@ -21,5 +21,7 @@ int main(){
     cout<<"sshkey never used"<<endl;
     
     cout<<"fuck"<<endl;
+    cout<<"fuck"<<endl;
+    cout<<"songyehua_bit"<<endl;
     return 0;
 }
