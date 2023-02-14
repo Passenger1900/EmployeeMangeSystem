@@ -1,2 +1,1 @@
-# EmployeeMangeSystem
-c++ practice
+# 员工管理系统联系
