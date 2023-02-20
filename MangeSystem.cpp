@@ -6,8 +6,8 @@ string MangeSystem::filename = "employees.txt";
 
 MangeSystem::MangeSystem()
 {
-    std::ifstream read_file;
-
+    std::ifstream infile(MangeSystem::filename.c_str(),"r");
+    使用 string tmp 对象读取，在txt中仅仅保存num name对应的数据，不存名称
     cout<<"ini MangeSystem"<<endl;
     cout<<"found elemets in xxx.txt"<<endl;
 }
