@@ -20,6 +20,8 @@ class MangeSystem
     employee& find();
     void sort();
     void empty();
+    void read_file();
+    void update_file();
 
     ~MangeSystem(){}
 };
