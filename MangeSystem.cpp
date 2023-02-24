@@ -6,10 +6,45 @@ string MangeSystem::filename = "employees.txt";
 
 MangeSystem::MangeSystem()
 {
-    std::ifstream infile(MangeSystem::filename.c_str(),"r");
-    使用 string tmp 对象读取，在txt中仅仅保存num name对应的数据，不存名称
     cout<<"ini MangeSystem"<<endl;
-    cout<<"found elemets in xxx.txt"<<endl;
+    std::ifstream infile(MangeSystem::filename.c_str(),
+                            std::ios_base::in);
+    // 使用 string tmp 对象读取，在txt中仅仅保存num
+    string tmp_num;
+    string tmp_name;
+    string tmp_title;
+    int index_tmp;
+    employee *tmp_e = nullptr;
+    infile.seekg(0,std::ios_base::end);
+    if(infile.tellg()==0)
+    {
+        cout<<"empty file"<<endl;
+    }
+    else
+    {
+        infile.seekg(0);
+        while(!infile.eof())
+        {
+            infile >> index_tmp;
+            infile >> tmp_num;
+            infile >> tmp_name;
+            infile >> tmp_title;
+            if (tmp_title == "employee")
+            {
+                tmp_e = new employee(tmp_num, tmp_name, tmp_title);
+            }
+            else if (tmp_title == "manager")
+            {
+                tmp_e = new manager(tmp_num, tmp_name, tmp_title);
+            }
+            else{
+                tmp_e = new boss(tmp_num, tmp_name, tmp_title);
+            }
+            add_one(*tmp_e);
+        }
+
+    }
+
 }
 
 void MangeSystem::start()
@@ -45,14 +80,14 @@ void MangeSystem::show()
     {
         for( auto i= staff.begin();i!=staff.end();i++)
         {
-            (*i).show_item();
+            (**i).show_item();
         }
     }
 }
 
-employee& MangeSystem::add_one(const employee& employee_in)
+void MangeSystem::add_one(const employee& employee_in)
 {
-
+    staff.push_back(const_cast<employee*>(&employee_in));
 }
 
 void MangeSystem::add_staffs()

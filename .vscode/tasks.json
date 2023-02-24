@@ -9,6 +9,7 @@
                 "-g",
                 "${file}",
                 "${fileDirname}/employee.cpp",
+                "${fileDirname}/MangeSystem.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

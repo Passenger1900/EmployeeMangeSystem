@@ -1,3 +1,5 @@
+#ifndef EMPLOYEE_H_
+#define EMPLOYEE_H_
 #include <string>
 #include <iostream>
 
@@ -17,7 +19,7 @@ class employee
             {cout<<"construct employee"<<endl;}
     virtual void duty(){cout<<"To complete the job from manager"<<endl;};
     void show_item();
-    virtual ~employee(){};
+    virtual ~employee(){cout<<"destroy "<<endl;};
 };
 
 class manager :public employee
@@ -39,3 +41,5 @@ class boss :public manager
     void duty(){cout<<"Manage all affairs of company"<<endl;}
     ~boss(){};
 };
+
+#endif

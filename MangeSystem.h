@@ -6,14 +6,14 @@ class MangeSystem
 {
     private:
     static string filename; 
-    vector<employee> staff;
+    vector<employee*> staff;
     public:   
     MangeSystem();
     void menu();
     void start();
     void exit();
     void show();
-    employee& add_one(const employee& employee_in);
+    void add_one(const employee& employee_in);
     void add_staffs();
     void remove(const string& num);
     void edit(const string& num);
