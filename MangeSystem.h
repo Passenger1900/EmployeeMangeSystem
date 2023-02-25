@@ -13,15 +13,19 @@ class MangeSystem
     void start();
     void exit();
     void show();
-    void add_one(const employee& employee_in);
+    void add_one(const string& tmp_num,
+                 const string& tmp_name,
+                 const string& tmp_title);
     void add_staffs();
     void remove(const string& num);
     void edit(const string& num);
-    employee& find();
+
+    int find(const string& input_tmp,int mode=0);
+    void find_person();
     void sort();
     void empty();
     void read_file();
     void update_file();
 
-    ~MangeSystem(){}
+    ~MangeSystem();
 };

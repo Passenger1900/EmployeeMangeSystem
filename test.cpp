@@ -11,7 +11,7 @@ int main()
     // boss c;
     // c.show_item();
     MangeSystem mange_test;
-
+    mange_test.show();
 
     return 0;
 }

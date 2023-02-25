@@ -19,7 +19,12 @@ class employee
             {cout<<"construct employee"<<endl;}
     virtual void duty(){cout<<"To complete the job from manager"<<endl;};
     void show_item();
+    string num_out(){return num;}
+    string name_out(){return name;}
+    string title_out(){return title;}
+    string format_data();
     virtual ~employee(){cout<<"destroy "<<endl;};
+    // 要不把mangeSystem 声明为友元类？
 };
 
 class manager :public employee
