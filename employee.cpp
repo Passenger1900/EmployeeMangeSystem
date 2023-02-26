@@ -13,3 +13,8 @@ string employee::format_data()
     string tmp = num+" "+name+" "+title+"\n";
     return tmp;
 }
+
+string employee::num_out() const
+{
+    return num;
+}

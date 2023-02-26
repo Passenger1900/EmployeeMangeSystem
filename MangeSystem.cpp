@@ -3,6 +3,9 @@
 #include <cstdlib>
 #include <fstream>
 
+bool worsethan(const employee* left,const employee* right);
+bool biggerthan(const employee* left,const employee* right);
+
 string MangeSystem::filename = "employees.txt";
 using std::cin;
 using std::cout;
@@ -23,8 +26,67 @@ MangeSystem::~MangeSystem()
     }
 }
 
+void MangeSystem::remove_inter()
+{
+    cout<<"input the num you want to remove "<<endl;
+    string tmp_num;
+    cin>>tmp_num;
+    remove(tmp_num);
+}
+void MangeSystem::edit_inter()
+{
+    cout<<"input the num you want to editor "<<endl;
+    string tmp_num;
+    cin>>tmp_num;
+    edit(tmp_num);
+}
+
 void MangeSystem::start()
 {
+    menu();
+    int tmp=-1;
+    while(1)
+    {
+        cin>>tmp;
+        switch (tmp)
+        {
+
+        case 0:
+            exit();
+            break;
+        case 1:
+            add_staffs();
+            break;
+        case 2:
+            show();
+            break;
+        case 3:
+            remove_inter();
+            break;
+        case 4:
+            edit_inter();
+            break;
+        case 5:
+            find_person();
+            break;
+        case 6:
+            MangeSystem::sort();
+            break;
+        case 7:
+            empty();
+            break;
+        default:
+            break;
+        }
+        cout<<"press any key to continue"<<endl;
+        while (cin.get()!='\n')
+        {
+        }
+        cin.get();
+        system("clear");
+        menu();
+    }
+
 
 }
 
@@ -179,7 +241,7 @@ void MangeSystem::edit(const string& num)
 
 
 
-int MangeSystem::find(const string& input_tmp,int mode=0)
+int MangeSystem::find(const string& input_tmp,int mode)
 {
     // 默认mode0，按照num查找
     if(mode==0)
@@ -214,6 +276,7 @@ int MangeSystem::find(const string& input_tmp,int mode=0)
     else
     {
         cout<<"wrong input mode ,should in {0 , 1}"<<endl;
+        return -1;
     }
 }
 
@@ -254,6 +317,7 @@ void MangeSystem::sort()
         std::sort(staff.begin(),staff.end(),worsethan); 
     else
         std::sort(staff.begin(),staff.end(),biggerthan);
+    update_file();
 }
 
 bool worsethan(const employee* left,const employee* right)
@@ -266,7 +330,7 @@ bool worsethan(const employee* left,const employee* right)
 
 bool biggerthan(const employee* left,const employee* right)
 {
-    if(((*left).num_out()) < ((*right).num_out()))
+    if(((*left).num_out()) > ((*right).num_out()))
         return true;
     else
         return false;
@@ -275,7 +339,9 @@ bool biggerthan(const employee* left,const employee* right)
 void MangeSystem::empty()
 {
     cout<< "are you sure to empty the data? y/n"<<endl;
-    if(cin.get() == 'y')
+    char confirm;
+    cin>>confirm;
+    if(confirm == 'y')
     {
         for (auto i =staff.begin();i!=staff.end();i++)
         {
@@ -314,6 +380,9 @@ void MangeSystem::read_file()
             infile >> tmp_num;
             infile >> tmp_name;
             infile >> tmp_title;
+            cout<<infile.tellg()<<endl;
+            while(infile.peek()!= EOF && infile.get()!='\n')
+                continue;
             add_one(tmp_num,tmp_name,tmp_title);
         }
     }
@@ -324,7 +393,7 @@ void MangeSystem::update_file()
     std::ofstream outfile(MangeSystem::filename.c_str(),std::ios_base::out);
     for (auto i = staff.begin(); i != staff.end(); i++)
     {
-        outfile<<std::distance(staff.begin(),i) <<(**i).format_data();
+        outfile<<std::distance(staff.begin(),i) <<"  "<<(**i).format_data();
     }
     outfile.close();
 }

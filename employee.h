@@ -15,16 +15,16 @@ class employee
     public:
     employee(const string& num_in = "0000",
              const string& name_in = "Nobody",
-             const string& title_in = "employee"):num(num_in),name(name_in),title(title_in)
-            {cout<<"construct employee"<<endl;}
+             const string& title_in = "employee"):num(num_in),name(name_in),title(title_in){} 
     virtual void duty(){cout<<"To complete the job from manager"<<endl;};
     void show_item();
-    string num_out(){return num;}
+    string num_out() const; 
     string name_out(){return name;}
     string title_out(){return title;}
     string format_data();
-    virtual ~employee(){cout<<"destroy "<<endl;};
-    // 要不把mangeSystem 声明为友元类？
+    // virtual ~employee(){cout<<"destroy "<<endl;};
+    virtual ~employee(){};
+    // 要不把mangeSystem 声明为友元类？就不用那么多out了
 };
 
 class manager :public employee

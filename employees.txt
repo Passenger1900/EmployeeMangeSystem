@@ -1,3 +1,4 @@
-1 0001 tom employee
-2 0002 jery manager
-3 0003 feiqi boss
+0  0003 feiqi boss
+1  0002 jery manager
+2  0001 tom manager
+3  0001 tom manager
